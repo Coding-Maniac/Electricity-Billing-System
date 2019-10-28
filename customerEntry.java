@@ -2,12 +2,16 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class customerEntry
+public class customerEntry implements ActionListener
 {
+    JFrame cusFram = new JFrame("CUSTOMER ENTRY");
+    JLabel cusName,cusPhnNo,cusPass,cusReg;
+    JTextField txtcusName,numcusPhnNo,numcusID;
+    JButton btnConfirm;
     customerEntry()
     {
-        JFrame cusFram = new JFrame("CUSTOMER ENTRY");
-        JLabel cusName,cusPhnNo,cusPass,cusReg;
+        // JFrame cusFram = new JFrame("CUSTOMER ENTRY");
+        // JLabel cusName,cusPhnNo,cusPass,cusReg;
 
         //DECLARING THE LABELS
         cusReg=new JLabel("CUSTOMER REGISTRATION");
@@ -29,7 +33,7 @@ public class customerEntry
         cusFram.add(cusPass);
 
         //DECLARING TEXT FIELDS
-        JTextField txtcusName,numcusPhnNo,numcusID;
+        // JTextField txtcusName,numcusPhnNo,numcusID;
         txtcusName = new JTextField();
         numcusPhnNo = new JTextField();
         numcusID = new JTextField();
@@ -46,7 +50,7 @@ public class customerEntry
         //ADDING A BUTTON
         JButton btnConfirm= new JButton("CONFIRM DETAILS");
         btnConfirm.setBounds(250,450,200,50);
-        //btnConfirm.addActionListener(this);
+        btnConfirm.addActionListener(this);
         cusFram.add(btnConfirm);
 
 
@@ -57,17 +61,19 @@ public class customerEntry
         cusFram.setLayout(null);
         cusFram.setVisible(true);
     }
-    // public void actionPerformed(ActionEvent e)
-    // {
-    //     String stcusName=txtcusName.getText();
-    //     String stnumcusPhnNo=numcusPhnNo.getText();
-    //     String stnumcusID=numcusID.getText();
-    //     int numPhnNo = Integer.parseInt(stnumcusPhnNo);
-    //     int numID = Integer.parseInt(stnumcusID);
-    //     System.out.println(stcusName);
-    //     int a = numPhnNo + numID;
-    //     System.out.println(a);       
-    // }
+    public void actionPerformed(ActionEvent e)
+    {
+        String stcusName=txtcusName.getText();
+        String stnumcusPhnNo=numcusPhnNo.getText();
+        String stnumcusID=numcusID.getText();
+        int numPhnNo = Integer.parseInt(stnumcusPhnNo);
+        int numID = Integer.parseInt(stnumcusID);
+        System.out.println(stcusName);
+        int a = numPhnNo + numID;
+        System.out.println(a);       
+    }
+    
+    
 public static void main(String[] args)
 {
     new customerEntry();
